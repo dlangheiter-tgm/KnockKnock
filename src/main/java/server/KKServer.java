@@ -40,7 +40,8 @@ public class KKServer implements Shutdown{
         System.out.println("Server shutdown");
         this.listening = false;
         this.pool.shutdown();
-        try (Socket socket = new Socket("localhost", this.portNumber)){
+        try {
+            new Socket("localhost", this.portNumber).close();
         } catch (IOException e) {
             // Ignore since we want to close it
         }
