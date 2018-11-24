@@ -18,7 +18,19 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'App'
+// mainClassName = 'App'
+
+task client(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    main = 'client.KKClient'
+}
+
+task server(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    main = 'server.KKServer'
+}
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
